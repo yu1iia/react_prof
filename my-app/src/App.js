@@ -15,8 +15,11 @@ class App extends React.Component{
       title:"Animals"
 }
  }
-
-
+//При использовнии стрелояной функции не возникает проблем с потерей контекста!!!
+  inputHandler = (event) => {
+    console.log(event.target.value);
+    this.setState({title: event.target.value})
+}
 
   eventHandler(title) {
     console.log('work')
@@ -42,11 +45,14 @@ let animal = this.state.animals
 
       <div>
         <button onClick={this.eventHandler.bind(this)}>PUSH</button>
-        <select onChange={this.eventHandler.bind(this)}>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+        <select onChange={this.inputHandler}>
+          <option>{animal[0].name}</option>
+          <option>{animal[1].name}</option>
+          <option>{animal[2].name}</option>
+          <option>{animal[3].name}</option>
+
         </select>
+        <input type="text" onChange={this.inputHandler}/>
       </div>
 
   </div>
