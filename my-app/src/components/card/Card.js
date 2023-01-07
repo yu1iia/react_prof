@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './Card.module.scss';
+
 export const Card = props => {
   if (props.show) {
     return (
@@ -18,4 +20,9 @@ export const Card = props => {
       </div>
     );
   }
+};
+
+Card.propTypes = {
+  name: PropTypes.string,
+  color: PropTypes.string,
 };
