@@ -22,7 +22,10 @@ class App extends React.Component {
       showCards: false,
       showDescription: false,
     };
+
+    this.headRef = React.createRef();
   }
+
   //При использовнии стрелояной функции не возникает проблем с потерей контекста!!!
   inputHandler = event => {
     console.log(event.target.value);
@@ -51,7 +54,9 @@ class App extends React.Component {
   // componentDidMount() {
   //   console.log('App componentDidMount');
   // }
-
+  componentDidMount() {
+    console.log(this.headRef.current);
+  }
   render() {
     // console.log('App render');
 
@@ -61,7 +66,7 @@ class App extends React.Component {
       <div>
         <div style={{ textAlign: 'center' }}>
           <Expo />
-          <h1>{this.state.title}</h1>
+          <h1 ref={this.headRef}>{this.state.title}</h1>
         </div>
 
         {this.state.showCards ? (
