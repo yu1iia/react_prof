@@ -11,7 +11,9 @@ class App extends React.Component{
              { name: 'dog', color: 'black'}, 
              { name: 'tiger', color: 'orange'}, 
              { name: 'fox', color: 'ginger'}, 
-        { name: 'lion', color: 'yellow' }],
+        { name: 'lion', color: 'yellow' },
+        { name: 'croco', color: 'green' }],
+      
       title:"Animals"
 }
  }
@@ -36,11 +38,20 @@ let animal = this.state.animals
     <div>
       <div style={{textAlign:'center'}}><h1>{this.state.title}</h1></div>
   <div className = "App">
-  <Card name = {animal[0].name} color = {animal[0].color} click={this.eventHandler.bind(this)}/>
+
+        {animal.map((item, i) => {
+          return (
+            <Card name={item.name} color={item.color} click={this.eventHandler.bind(this)}key={i}/>
+  )
+})}
+        
+
+
+  {/* <Card name = {animal[0].name} color = {animal[0].color} click={this.eventHandler.bind(this)}/>
   <Card name = {animal[1].name} color = {animal[1].color} click={this.eventHandler.bind(this)}/>
   <Card name = {animal[2].name} color = {animal[2].color} click={this.eventHandler.bind(this)}/>
   <Card name = {animal[3].name} color = {animal[3].color} click={this.eventHandler.bind(this)}/>
-  <Card name = {animal[4].name} color = {animal[4].color} click={this.eventHandler.bind(this)}/>
+  <Card name = {animal[4].name} color = {animal[4].color} click={this.eventHandler.bind(this)}/> */}
   </div>
 
       <div>
