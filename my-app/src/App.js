@@ -40,7 +40,18 @@ class App extends React.Component {
     this.setState({ showDescription: !this.state.showDescription });
   };
 
+  //Жизненный цикл компонента
+
+  componentWillMount() {
+    console.log('App componentWillMount');
+  }
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
   render() {
+    console.log('App render');
+
     let animal = this.state.animals;
 
     return (
