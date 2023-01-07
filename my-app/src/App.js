@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import { Card } from './components/card/Card';
 import { Expo } from './components/expo/Expo';
+import Footer from './components/footer/Footer';
+// import { Footer } from './components/footer/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +90,8 @@ class App extends React.Component {
           <button onClick={this.showCardsHandler}>SHOW/HIDE</button>
           <button onClick={this.showDescrHandler}>DESCRIPTION</button>
         </div>
+
+        <Footer />
       </div>
     );
   }
