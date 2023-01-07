@@ -14,7 +14,9 @@ class App extends React.Component{
         { name: 'lion', color: 'yellow' },
         { name: 'croco', color: 'green' }],
       
-      title:"Animals"
+      title: "Animals",
+      showCards: false,
+      showDescription:false,
 }
  }
 //При использовнии стрелояной функции не возникает проблем с потерей контекста!!!
@@ -30,20 +32,31 @@ class App extends React.Component{
     })
   }
 
+  showCardsHandler = () => {
+  this.setState({showCards: !this.state.showCards})
+}
+showDescrHandler = () => {
+  this.setState({showDescription: !this.state.showDescription})
+}
+
+
 render(){
 
 let animal = this.state.animals
 
   return (
     <div>
-      <div style={{textAlign:'center'}}><h1>{this.state.title}</h1></div>
-  <div className = "App">
-
+      <div style={{ textAlign: 'center' }}><h1>{this.state.title}</h1></div>
+      
+      {this.state.showCards ? <div className="App">
+        
         {animal.map((item, i) => {
           return (
-            <Card name={item.name} color={item.color} click={this.eventHandler.bind(this)}key={i}/>
-  )
-})}
+            <Card name={item.name} color={item.color} click={this.eventHandler.bind(this)} key={i} show={this.state.showDescription} />
+          )
+        })}</div> : null}
+
+      
         
 
 
@@ -52,18 +65,12 @@ let animal = this.state.animals
   <Card name = {animal[2].name} color = {animal[2].color} click={this.eventHandler.bind(this)}/>
   <Card name = {animal[3].name} color = {animal[3].color} click={this.eventHandler.bind(this)}/>
   <Card name = {animal[4].name} color = {animal[4].color} click={this.eventHandler.bind(this)}/> */}
-  </div>
+ 
 
       <div>
-        <button onClick={this.eventHandler.bind(this)}>PUSH</button>
-        <select onChange={this.inputHandler}>
-          <option>{animal[0].name}</option>
-          <option>{animal[1].name}</option>
-          <option>{animal[2].name}</option>
-          <option>{animal[3].name}</option>
-
-        </select>
-        <input type="text" onChange={this.inputHandler}/>
+        <button onClick={this.showCardsHandler}>SHOW/HIDE</button>
+        <button onClick={this.showDescrHandler}>DESCRIPTION</button>
+         
       </div>
 
   </div>
