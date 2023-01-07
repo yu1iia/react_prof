@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { Card } from './components/card/Card';
+import { Expo } from './components/expo/Expo';
 
 class App extends React.Component {
   constructor(props) {
@@ -42,21 +43,22 @@ class App extends React.Component {
 
   //Жизненный цикл компонента
 
-  componentWillMount() {
-    console.log('App componentWillMount');
-  }
-  componentDidMount() {
-    console.log('App componentDidMount');
-  }
+  // componentWillMount() {
+  //   console.log('App componentWillMount');
+  // }
+  // componentDidMount() {
+  //   console.log('App componentDidMount');
+  // }
 
   render() {
-    console.log('App render');
+    // console.log('App render');
 
     let animal = this.state.animals;
 
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
+          <Expo />
           <h1>{this.state.title}</h1>
         </div>
 
